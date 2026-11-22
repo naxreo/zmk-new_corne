@@ -46,7 +46,7 @@ layers:
   - NAV
   - {t: '$$mdi:keyboard-esc$$', h: LGUI}
   - {t: 'Sft+$$mdi:keyboard-esc$$', h: SYM}
-  - {t: '$$mdi:backspace$$', h: NAV}
+  - {t: '$$mdi:backspace$$', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   SYM:
