@@ -61,27 +61,28 @@ LV_IMG_DECLARE(bongo_cat_tap2_02);
 LV_IMG_DECLARE(bongo_cat_tap2_03);
 LV_IMG_DECLARE(bongo_cat_tap2_04);
 
+// 로컬 수정: 선글라스 없는 프레임만 사용 (원본은 *_03, *_06, double_tap2_02)
 #define ANIMATION_SPEED_IDLE 10000
 const lv_img_dsc_t *idle_imgs[] = {
-    &bongo_cat_double_tap1_06,
+    &bongo_cat_double_tap1_01,
 };
 
 #define ANIMATION_SPEED_SLOW 2000
 const lv_img_dsc_t *slow_imgs[] = {
-    &bongo_cat_tap1_03,
-    &bongo_cat_tap2_03,
+    &bongo_cat_tap1_02,
+    &bongo_cat_tap2_02,
 };
 
 #define ANIMATION_SPEED_MID 500
 const lv_img_dsc_t *mid_imgs[] = {
-    &bongo_cat_tap1_03,
-    &bongo_cat_tap2_03,
+    &bongo_cat_tap1_02,
+    &bongo_cat_tap2_02,
 };
 
 #define ANIMATION_SPEED_FAST 200
 const lv_img_dsc_t *fast_imgs[] = {
-    &bongo_cat_double_tap2_02,
-    &bongo_cat_double_tap1_03,
+    &bongo_cat_double_tap2_01,
+    &bongo_cat_double_tap1_02,
 };
 
 struct wpm_bongo_cat_status_state {
