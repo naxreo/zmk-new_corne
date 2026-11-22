@@ -14,7 +14,7 @@
 //   토템 20~25 / 26~31  → L13~L18 / R13~R18 (28~33 / 36~41)
 //   토템 32~34 / 35~37  → L19~L21 / R19~R21 (42~44 / 45~47)
 //
-// 레이어: 0 QWERTY, 1 SYM(L21 홀드), 2 NAV(L19·R19 홀드), 3 NUM(L7 홀드), 4 BT(L20+L21 콤보)
+// 레이어: 0 QWERTY, 1 SYM(L20 홀드), 2 NAV(L21·R19 홀드), 3 NUM(L7 홀드), 4 BT(L20+L21 콤보)
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
@@ -155,6 +155,13 @@
             key-positions = <1 15 29>;
         };
 
+        // L1+L2: ESC
+
+        cb_esc {
+            bindings = <&kp ESC>;
+            key-positions = <0 1>;
+        };
+
         // K+L
 
         cb_enter {
@@ -196,7 +203,7 @@
 &kp TAB       &as LS(Q) Q  &as LS(W) W      &as LS(E) E     &as LS(R) R     &as LS(T) T                                     &mmv MOVE_UP                     &kp Y         &kp U            &kp I                &as LS(O) O         &as LS(P) P          &kp BSPC
 &lt NUM CAPS  &kp A        &kp S            &kp D           &kp F           &kp G                           &mmv MOVE_LEFT  &none           &mmv MOVE_RIGHT  &kp H         &kp J            &kp K                &kp L               &as COLON SEMICOLON  &kp SQT
 &kp LSHFT     &kp Z        &hmLeft LCTRL X  &hmLeft LALT C  &hmLeft LGUI V  &kp B              &mkp LCLK                    &mmv MOVE_DOWN                   &hmRight B N  &hmRight RGUI M  &hmRight RALT COMMA  &hmRight RCTRL DOT  &kp SLASH            &kp RSHFT
-                                            &mo NAV         &mt LGUI ESC    &lt SYM LS(ESC)                                                                  &mt RSHFT BSPC  &kp SPACE      &kp ENTER
+                                            &mt LGUI ESC    &lt SYM LS(ESC) &mo NAV                                                                          &mt RSHFT BSPC  &kp SPACE      &kp ENTER
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
