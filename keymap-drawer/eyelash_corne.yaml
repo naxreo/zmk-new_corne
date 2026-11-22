@@ -43,9 +43,9 @@ layers:
   - {t: ., h: '$$mdi:apple-keyboard-control$$', s: '>'}
   - {t: /, s: '?'}
   - $$mdi:apple-keyboard-shift$$
-  - {t: '$$mdi:keyboard-tab$$', h: NAV}
-  - {t: 'Sft+$$mdi:keyboard-esc$$', h: (LGUI)}
-  - {t: '$$mdi:keyboard-esc$$', h: SYM}
+  - NAV
+  - {t: '$$mdi:keyboard-esc$$', h: LGUI}
+  - {t: 'Sft+$$mdi:keyboard-esc$$', h: SYM}
   - {t: '$$mdi:backspace$$', h: NAV}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
