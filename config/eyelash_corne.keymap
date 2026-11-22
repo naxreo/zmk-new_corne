@@ -206,7 +206,7 @@
             display-name = "NAV";
             bindings = <
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5                            &trans          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp BACKSPACE
-&trans  &none         &none         &none          &none         &kp LG(LS(NUMBER_4))            &trans  &trans  &trans  &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &none         &trans
+&trans  &none         &none         &mkp MB2       &mkp MB1      &kp LG(LS(NUMBER_4))            &trans  &trans  &trans  &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &none         &trans
 &trans  &none         &none         &kp LS(LG(C))  &none         &kp LG(LS(NUMBER_5))  &trans            &trans          &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &none         &trans
                                     &trans         &trans        &trans                                                  &trans        &trans        &trans
             >;
