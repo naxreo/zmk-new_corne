@@ -49,6 +49,13 @@
     flavor = "tap-preferred";
 };
 
+// 조이스틱 마우스 가속: 짧게 누르면 1~3px 로 정밀하게, 길게 누르면 천천히 출발해 1초 뒤 최고 속도
+// 속도 = 최고 속도 × (누른 시간 / 1000ms)^2
+&mmv {
+    time-to-max-speed-ms = <1000>;
+    acceleration-exponent = <2>;
+};
+
 // 조이스틱(M 키, &mmv)을 움직이면 NAV 레이어를 켜고, 마지막 움직임 후 700ms 가 지나면 끈다
 &mmv_input_listener {
     input-processors = <&zip_temp_layer NAV 700>;
