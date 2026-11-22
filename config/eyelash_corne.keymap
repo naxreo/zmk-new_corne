@@ -176,10 +176,10 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp TAB       &as LS(Q) Q      &as LS(W) W      &as LS(E) E     &as LS(R) R         &as LS(T) T                                   &mmv MOVE_UP                     &kp Y             &kp U            &kp I                &as LS(O) O         &as LS(P) P           &kp BSPC
-&lt NUM CAPS  &mt CAPS A       &kp S            &kp D           &kp F               &kp G                         &mmv MOVE_LEFT  &kp C_MUTE      &mmv MOVE_RIGHT  &kp H             &kp J            &kp K                &kp L               &as COLON SEMICOLON   &kp SQT
-&kp LSHFT     &hmLeft LSHFT Z  &hmLeft LCTRL X  &hmLeft LALT C  &hmLeft LGUI V      &hmLeft LSHFT B  &mkp LCLK                    &mmv MOVE_DOWN                   &hmRight RSHFT N  &hmRight RGUI M  &hmRight RALT COMMA  &hmRight RCTRL DOT  &hmRight RSHFT SLASH  &kp RSHFT
-                                                &lt NAV TAB     &mt (LGUI) LS(ESC)  &lt SYM ESC                                                                    &lt NAV BSPC      &kp SPACE        &kp ENTER
+&kp TAB       &as LS(Q) Q  &as LS(W) W      &as LS(E) E     &as LS(R) R         &as LS(T) T                               &mmv MOVE_UP                     &kp Y         &kp U            &kp I                &as LS(O) O         &as LS(P) P          &kp BSPC
+&lt NUM CAPS  &kp A        &kp S            &kp D           &kp F               &kp G                     &mmv MOVE_LEFT  &kp C_MUTE      &mmv MOVE_RIGHT  &kp H         &kp J            &kp K                &kp L               &as COLON SEMICOLON  &kp SQT
+&kp LSHFT     &kp Z        &hmLeft LCTRL X  &hmLeft LALT C  &hmLeft LGUI V      &kp B        &mkp LCLK                    &mmv MOVE_DOWN                   &hmRight B N  &hmRight RGUI M  &hmRight RALT COMMA  &hmRight RCTRL DOT  &kp SLASH            &kp RSHFT
+                                            &lt NAV TAB     &mt (LGUI) LS(ESC)  &lt SYM ESC                                                                &lt NAV BSPC  &kp SPACE        &kp ENTER
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -188,10 +188,10 @@
         symbol_layer {
             display-name = "SYM";
             bindings = <
-&trans  &mts LG(Q) EXCL  &mts LG(W) AT  &kp HASH   &mts LG(R) DLLR  &kp PRCNT                    &trans          &kp CARET      &kp AMPS        &as UNDER MINUS  &mts LG(O) LPAR  &kp RPAR     &trans
-&trans  &kp GRAVE        &kp TILDE      &mo NAV    &kp PIPE         &kp BSLH             &trans  &trans  &trans  &as LBRC LBKT  &as PLUS EQUAL  &kp ASTRK        &as RBRC RBKT    &as DQT SQT  &trans
-&trans  &trans           &trans         &kp LG(C)  &kp LG(V)        &kp SEMI   &trans            &trans          &kp DEL        &kp BSPC        &kp LT           &kp GT           &kp QMARK    &trans
-                                        &trans     &trans           &trans                                       &trans         &trans          &kp LS(ENTER)
+&trans  &mts LG(Q) EXCL  &mts LG(W) AT  &kp HASH   &mts LG(R) DLLR            &kp PRCNT                    &trans          &kp CARET      &kp AMPS        &as UNDER MINUS  &mts LG(O) LPAR  &kp RPAR             &kp BACKSPACE
+&trans  &kp GRAVE        &kp LG(S)      &none      &as PIPE NON_US_BACKSLASH  &kp COLON            &trans  &trans  &trans  &as LBRC LBKT  &as PLUS EQUAL  &kp ASTRK        &as RBRC RBKT    &as COLON SEMICOLON  &as DQT SQT
+&trans  &trans           &trans         &kp LG(C)  &kp LG(V)                  &kp TILDE  &trans            &trans          &kp DEL        &kp BSPC        &kp LT           &kp GT           &kp QMARK            &trans
+                                        &trans     &trans                     &trans                                       &mo 2          &kp SPACE       &kp LS(ENTER)
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -200,10 +200,10 @@
         nav_layer {
             display-name = "NAV";
             bindings = <
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &none                     &trans          &none     &none      &none      &none      &none  &trans
-&trans  &kp F5  &kp F6   &kp F7   &kp F8   &none             &trans  &trans  &trans  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &none  &trans
-&trans  &kp F9  &kp F10  &kp F11  &kp F12  &none   &trans            &trans          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &none  &trans
-                         &trans   &trans   &trans                                    &trans    &trans     &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5                            &trans          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp BACKSPACE
+&trans  &none         &none         &none          &none         &kp LG(LS(NUMBER_4))            &trans  &trans  &trans  &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &none         &trans
+&trans  &none         &none         &kp LS(LG(C))  &none         &kp LG(LS(NUMBER_5))  &trans            &trans          &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &none         &trans
+                                    &trans         &trans        &trans                                                  &trans        &trans        &trans
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -212,10 +212,10 @@
         num_layer {
             display-name = "NUM";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans          &kp SLASH  &kp N7  &kp N8  &kp N9  &kp ASTRK  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &kp PLUS   &kp N4  &kp N5  &kp N6  &kp DOT    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans          &kp MINUS  &kp N1  &kp N2  &kp N3  &kp EQUAL  &trans
-                        &trans  &trans  &trans                                    &trans     &kp N0  &trans
+&trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                     &trans          &kp N7        &kp NUMBER_8  &kp NUMBER_9  &kp PLUS    &kp ASTRK  &kp BACKSPACE
+&trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10            &trans  &trans  &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS   &kp SLASH  &trans
+&trans  &kp F11  &kp F12  &none   &none   &none    &trans            &trans          &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp EQUAL  &trans
+                          &trans  &trans  &trans                                     &kp N0        &kp SPACE     &kp ENTER
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -224,8 +224,8 @@
         bt_layer {
             display-name = "BT";
             bindings = <
-&studio_unlock  &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                       &trans          &bt BT_SEL 4     &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0  &trans
-&trans          &bt BT_CLR       &out OUT_USB    &out OUT_BLE  &trans        &bt BT_CLR_ALL             &trans  &trans  &trans  &bt BT_CLR_ALL   &trans           &trans           &trans           &bt BT_CLR    &trans
+&studio_unlock  &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                       &trans          &bt BT_SEL 4     &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0  &none
+&none           &bt BT_CLR       &out OUT_USB    &out OUT_BLE  &trans        &bt BT_CLR_ALL             &trans  &trans  &trans  &bt BT_CLR_ALL   &none            &none            &none            &bt BT_CLR    &none
 &bootloader     &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &sys_reset    &trans        &rgb_ug RGB_EFF  &trans            &trans          &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &sys_reset    &bootloader
                                                  &trans        &trans        &trans                                             &trans           &trans           &trans
             >;
