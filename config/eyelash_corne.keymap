@@ -49,6 +49,11 @@
     flavor = "tap-preferred";
 };
 
+// 조이스틱(M 키, &mmv)을 움직이면 NAV 레이어를 켜고, 마지막 움직임 후 700ms 가 지나면 끈다
+&mmv_input_listener {
+    input-processors = <&zip_temp_layer NAV 700>;
+};
+
 / {
     behaviors {
         // 왼손 홈로우 모드: 오른손 키(+오른손 엄지)가 눌릴 때만 hold 로 판정
