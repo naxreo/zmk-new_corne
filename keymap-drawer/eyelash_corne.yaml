@@ -44,7 +44,7 @@ layers:
   - {t: /, h: '$$mdi:apple-keyboard-shift$$', s: '?'}
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:keyboard-tab$$', h: NAV}
-  - {t: 'Sft+$$mdi:keyboard-esc$$', h: LGUI}
+  - {t: 'Sft+$$mdi:keyboard-esc$$', h: (LGUI)}
   - {t: '$$mdi:keyboard-esc$$', h: SYM}
   - {t: '$$mdi:backspace$$', h: NAV}
   - $$mdi:keyboard-space$$
@@ -253,9 +253,5 @@ combos:
 - p: [43, 44]
   k: BT
   l: [QWERTY]
-- p: [1, 2]
-  k: $$mdi:keyboard-esc$$
-- p: [10, 11]
-  k: {t: '$$mdi:backspace$$', type: backspace}
-- p: [14, 15]
-  k: $$mdi:keyboard-tab$$
+- p: [23, 24]
+  k: '&enters'
