@@ -113,6 +113,19 @@
             flavor = "tap-preferred";
         };
 
+        // 홀드 시 레이어, 탭 시 → ← 매크로 (사용: &lt_rl LAYER 0, 두 번째 인자는 무시)
+
+        lt_rl: lt_rl {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo>, <&right_left>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <150>;
+        };
+
         rsr_vol: rsr_vol {
             compatible = "zmk,behavior-runtime-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -142,6 +155,14 @@
             #binding-cells = <0>;
             bindings = <&kp ENTER &kp ENTER>;
             label = "ENTERS";
+        };
+
+        // 오른쪽 화살표 후 왼쪽 화살표
+
+        right_left: right_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT &kp LEFT>;
         };
     };
 
@@ -203,7 +224,7 @@
 &kp TAB       &as LS(Q) Q  &as LS(W) W      &as LS(E) E     &as LS(R) R     &as LS(T) T                                     &mmv MOVE_UP                     &kp Y         &kp U            &kp I                &as LS(O) O         &as LS(P) P          &kp BSPC
 &lt NUM CAPS  &kp A        &kp S            &kp D           &kp F           &kp G                           &mmv MOVE_LEFT  &none           &mmv MOVE_RIGHT  &kp H         &kp J            &kp K                &kp L               &as COLON SEMICOLON  &kp SQT
 &kp LSHFT     &kp Z        &hmLeft LCTRL X  &hmLeft LALT C  &hmLeft LGUI V  &kp B              &mkp LCLK                    &mmv MOVE_DOWN                   &hmRight B N  &hmRight RGUI M  &hmRight RALT COMMA  &hmRight RCTRL DOT  &kp SLASH            &kp RSHFT
-                                            &mt LGUI ESC    &lt SYM LS(ESC) &mo NAV                                                                          &mt RSHFT BSPC  &kp SPACE      &kp ENTER
+                                            &mt LGUI ESC    &lt SYM LS(ESC) &lt_rl NAV 0                                                                     &mt RSHFT BSPC  &kp SPACE      &kp ENTER
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -226,7 +247,7 @@
             bindings = <
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5                            &trans          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp BACKSPACE
 &trans  &none         &none         &mkp MB2       &mkp MB1      &kp LG(LS(NUMBER_4))            &trans  &trans  &trans  &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &none         &trans
-&trans  &none         &none         &kp LS(LG(C))  &none         &kp LG(LS(NUMBER_5))  &trans            &trans          &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &none         &trans
+&trans  &none         &none         &kp LS(LG(C))  &none         &kp LG(LS(NUMBER_5))  &trans            &trans          &kp HOME      &kp BSPC      &kp PG_UP     &kp PG_DN     &none         &trans
                                     &trans         &trans        &trans                                                  &trans        &trans        &trans
             >;
 
