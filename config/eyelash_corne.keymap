@@ -189,7 +189,7 @@
 &kp TAB       &as LS(Q) Q  &as LS(W) W      &as LS(E) E     &as LS(R) R     &as LS(T) T                                     &mmv MOVE_UP                     &kp Y         &kp U            &kp I                &as LS(O) O         &as LS(P) P          &kp BSPC
 &lt NUM CAPS  &kp A        &kp S            &kp D           &kp F           &kp G                           &mmv MOVE_LEFT  &none           &mmv MOVE_RIGHT  &kp H         &kp J            &kp K                &kp L               &as COLON SEMICOLON  &kp SQT
 &kp LSHFT     &kp Z        &hmLeft LCTRL X  &hmLeft LALT C  &hmLeft LGUI V  &kp B              &mkp LCLK                    &mmv MOVE_DOWN                   &hmRight B N  &hmRight RGUI M  &hmRight RALT COMMA  &hmRight RCTRL DOT  &kp SLASH            &kp RSHFT
-                                            &mo NAV         &mt LGUI ESC    &lt SYM LS(ESC)                                                                  &lt NAV BSPC  &kp SPACE        &kp ENTER
+                                            &mo NAV         &mt LGUI ESC    &lt SYM LS(ESC)                                                                  &mt RSHFT BSPC  &kp SPACE      &kp ENTER
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
