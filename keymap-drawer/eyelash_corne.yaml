@@ -43,9 +43,9 @@ layers:
   - {t: ., h: '$$mdi:apple-keyboard-control$$', s: '>'}
   - {t: /, s: '?'}
   - $$mdi:apple-keyboard-shift$$
-  - {t: '$$mdi:keyboard-esc$$', h: LGUI}
-  - {t: 'Sft+$$mdi:keyboard-esc$$', h: SYM}
-  - {t: '&right_left', h: NAV}
+  - {t: '&right_left', h: LGUI}
+  - {t: '$$mdi:keyboard-esc$$', h: SYM}
+  - {t: 'Sft+$$mdi:keyboard-esc$$', h: NAV}
   - {t: '$$mdi:backspace$$', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -125,8 +125,8 @@ layers:
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-up-bold$$
   - $$mdi:arrow-right-bold$$
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: ;, s: ':'}
+  - {t: '''', s: '"'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -139,7 +139,7 @@ layers:
   - {t: '$$mdi:backspace$$', type: backspace}
   - PG UP
   - PG DN
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '?'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held alternate}
