@@ -243,7 +243,7 @@
         nav_layer {
             display-name = "NAV";
             bindings = <
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5                            &trans          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp BACKSPACE
+&trans  &as LS(N1) N1  &as LS(N2) N2  &as LS(N3) N3   &as LS(N4) N4  &as LS(N5) N5                            &trans          &as LS(N6) N6  &as LS(N7) N7  &as LS(N8) N8  &as LS(N9) N9  &as LS(N0) N0  &kp BACKSPACE
 &trans  &none         &none         &mkp MB2       &mkp MB1      &kp LG(LS(NUMBER_4))            &trans  &trans  &trans  &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp SEMI      &kp SQT
 &trans  &none         &none         &kp LS(LG(C))  &none         &kp LG(LS(NUMBER_5))  &trans            &trans          &kp HOME      &kp BSPC      &kp PG_UP     &kp PG_DN     &kp QMARK     &trans
                                     &trans         &trans        &trans                                                  &trans        &trans        &kp LS(ENTER)
