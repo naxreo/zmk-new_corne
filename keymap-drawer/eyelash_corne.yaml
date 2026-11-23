@@ -43,7 +43,7 @@ layers:
   - {t: ., h: '$$mdi:apple-keyboard-control$$', s: '>'}
   - {t: /, s: '?'}
   - $$mdi:apple-keyboard-shift$$
-  - '&space_left'
+  - {t: '&space_left', h: LGUI}
   - {t: '$$mdi:keyboard-esc$$', h: SYM}
   - {t: 'Sft+$$mdi:keyboard-esc$$', h: NAV}
   - {t: '$$mdi:backspace$$', h: '$$mdi:apple-keyboard-shift$$'}
