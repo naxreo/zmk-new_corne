@@ -113,17 +113,6 @@
             flavor = "tap-preferred";
         };
 
-        // 홀드 시 modifier, 탭 시 → ← 매크로 (사용: &mt_rl LGUI 0, 두 번째 인자는 무시)
-
-        mt_rl: mt_rl {
-            compatible = "zmk,behavior-hold-tap";
-            bindings = <&kp>, <&right_left>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <175>;
-            flavor = "tap-preferred";
-        };
-
         rsr_vol: rsr_vol {
             compatible = "zmk,behavior-runtime-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -155,12 +144,12 @@
             label = "ENTERS";
         };
 
-        // 오른쪽 화살표 후 왼쪽 화살표
+        // 스페이스 후 왼쪽 화살표
 
-        right_left: right_left {
+        space_left: space_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT &kp LEFT>;
+            bindings = <&kp SPACE &kp LEFT>;
         };
     };
 
@@ -222,7 +211,7 @@
 &kp TAB       &as LS(Q) Q  &as LS(W) W      &as LS(E) E     &as LS(R) R     &as LS(T) T                                     &mmv MOVE_UP                     &kp Y         &kp U            &kp I                &as LS(O) O         &as LS(P) P          &kp BSPC
 &lt NUM CAPS  &kp A        &kp S            &kp D           &kp F           &kp G                           &mmv MOVE_LEFT  &none           &mmv MOVE_RIGHT  &kp H         &kp J            &kp K                &kp L               &as COLON SEMICOLON  &kp SQT
 &kp LSHFT     &kp Z        &hmLeft LCTRL X  &hmLeft LALT C  &hmLeft LGUI V  &kp B              &mkp LCLK                    &mmv MOVE_DOWN                   &hmRight B N  &hmRight RGUI M  &hmRight RALT COMMA  &hmRight RCTRL DOT  &kp SLASH            &kp RSHFT
-                                            &mt_rl LGUI 0   &lt SYM ESC     &lt NAV LS(ESC)                                                                  &mt RSHFT BSPC  &kp SPACE      &kp ENTER
+                                            &space_left     &lt SYM ESC     &lt NAV LS(ESC)                                                                  &mt RSHFT BSPC  &kp SPACE      &kp ENTER
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
