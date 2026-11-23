@@ -76,7 +76,7 @@ layers:
   - {t: '=', h: +, s: +}
   - '*'
   - {t: ']', h: '}', s: '}'}
-  - {t: ;, h: ':', s: ':'}
+  - ':'
   - {t: '''', h: '"', s: '"'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
