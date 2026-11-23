@@ -52,8 +52,8 @@ in_docker() {
 # 빌드 대상: 이름 → shield | snippet | 추가 cmake 인자 | 결과 파일명 (build.yaml 과 맞춘다)
 target_spec() {
     case "$1" in
-        left)  echo "eyelash_corne_left nice_view|studio-rpc-usb-uart|-DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n|eyelash_corne_studio_left" ;;
-        right) echo "eyelash_corne_right nice_view|||eyelash_corne_right" ;;
+        left)  echo "eyelash_corne_left nice_view_mod|studio-rpc-usb-uart|-DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n|eyelash_corne_studio_left" ;;
+        right) echo "eyelash_corne_right nice_view_mod|||eyelash_corne_right" ;;
         reset) echo "settings_reset|||settings_reset" ;;
         *)     return 1 ;;
     esac
