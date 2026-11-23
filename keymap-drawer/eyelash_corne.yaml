@@ -43,7 +43,7 @@ layers:
   - {t: ., h: '$$mdi:apple-keyboard-control$$', s: '>'}
   - {t: /, s: '?'}
   - $$mdi:apple-keyboard-shift$$
-  - {t: '&right_left', h: LGUI}
+  - '&space_left'
   - {t: '$$mdi:keyboard-esc$$', h: SYM}
   - {t: 'Sft+$$mdi:keyboard-esc$$', h: NAV}
   - {t: '$$mdi:backspace$$', h: '$$mdi:apple-keyboard-shift$$'}
@@ -146,7 +146,7 @@ layers:
   - {type: held}
   - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: 'Sft+$$mdi:keyboard-return$$', type: enter}
   NUM:
   - {t: '$$mdi:transfer$$', type: trans}
   - F1
