@@ -7,8 +7,10 @@
 #   ./build.sh right reset     오른쪽 + settings_reset
 #   ./build.sh --update left   west.yml 변경 여부와 상관없이 west update 를 다시 실행
 #   ./build.sh --clean         west 작업 공간(Docker 볼륨)을 지우고 종료
+#   ./build.sh --draw-only     펌웨어 빌드 없이 keymap-drawer 그림만 갱신
 #
 # 결과물은 firmware/ 아래 uf2 로 복사된다.
+# 빌드 뒤 keymap-drawer 로 keymap-drawer/ 아래 yaml·svg 그림도 갱신한다.
 # west 작업 공간(zmk·zephyr 소스, 빌드 캐시)은 Docker 볼륨 zmk-corne-ws 에 둔다.
 # 저장소 루트의 zephyr/ (보드 모듈 정의)와 west 가 받는 zephyr 소스가 겹치지 않게 하려는 것이다.
 
@@ -59,20 +61,58 @@ target_spec() {
     esac
 }
 
+# keymap-drawer 로 키맵 그림 갱신 (CI draw.yml 과 같은 parse → draw 순서)
+# keymap 명령이 없으면 uvx 로 임시 실행한다
+draw_keymap() {
+    local DRAW_DIR="$REPO_DIR/keymap-drawer" KB="eyelash_corne" TMP_YAML TMP_SVG
+    local KEYMAP_CMD=()
+    if command -v keymap >/dev/null 2>&1; then
+        KEYMAP_CMD=(keymap)
+    elif command -v uvx >/dev/null 2>&1; then
+        KEYMAP_CMD=(uvx --from keymap-drawer keymap)
+    else
+        log_fail "[draw] keymap·uvx 명령이 없어 그림 갱신 실패 (pipx install keymap-drawer)"
+        FAIL=$((FAIL + 1)); return
+    fi
+    log "[draw] keymap-drawer 그림 갱신"
+    TMP_YAML=$(mktemp); TMP_SVG=$(mktemp)
+    if (cd "$REPO_DIR" &&
+        "${KEYMAP_CMD[@]}" -c keymap_drawer.config.yaml parse -z "config/$KB.keymap" >"$TMP_YAML" 2>>"$LOG_FILE" &&
+        "${KEYMAP_CMD[@]}" -c keymap_drawer.config.yaml draw "$TMP_YAML" -j "config/$KB.json" >"$TMP_SVG" 2>>"$LOG_FILE"); then
+        mv "$TMP_YAML" "$DRAW_DIR/$KB.yaml"
+        mv "$TMP_SVG" "$DRAW_DIR/$KB.svg"
+        log "[draw] 성공 → keymap-drawer/$KB.yaml, keymap-drawer/$KB.svg"
+        OK=$((OK + 1))
+    else
+        rm -f "$TMP_YAML" "$TMP_SVG"
+        log_fail "[draw] 그림 갱신 실패 (자세한 내용은 실행 로그 참고)"
+        FAIL=$((FAIL + 1))
+    fi
+}
+
 FORCE_UPDATE=0
+DRAW_ONLY=0
 TARGETS=()
 for arg in "$@"; do
     case "$arg" in
         --update) FORCE_UPDATE=1 ;;
+        --draw-only) DRAW_ONLY=1 ;;
         --clean)
             log "Docker 볼륨 $VOLUME 삭제"
             docker volume rm "$VOLUME" >>"$LOG_FILE" 2>&1 || log_fail "볼륨 삭제 실패 (없거나 사용 중)"
             summary; exit 0 ;;
         left|right|reset) TARGETS+=("$arg") ;;
-        *) log_fail "알 수 없는 인자: $arg (left|right|reset|--update|--clean)"; FAIL=1; summary; exit 1 ;;
+        *) log_fail "알 수 없는 인자: $arg (left|right|reset|--update|--clean|--draw-only)"; FAIL=1; summary; exit 1 ;;
     esac
 done
 [ ${#TARGETS[@]} -eq 0 ] && TARGETS=(left right)
+
+# --draw-only: Docker 빌드 없이 그림만 갱신
+if [ "$DRAW_ONLY" -eq 1 ]; then
+    draw_keymap
+    summary
+    [ "$FAIL" -eq 0 ]; exit
+fi
 
 if ! docker info >/dev/null 2>&1; then
     log_fail "Docker 데몬에 연결할 수 없음. Docker Desktop 실행 여부 확인"
@@ -128,6 +168,9 @@ for t in "${TARGETS[@]}"; do
         FAIL=$((FAIL + 1))
     fi
 done
+
+# 3) keymap-drawer 그림 갱신
+draw_keymap
 
 summary
 [ "$FAIL" -eq 0 ]
