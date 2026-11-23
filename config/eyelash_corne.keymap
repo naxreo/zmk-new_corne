@@ -232,7 +232,7 @@
             display-name = "SYM";
             bindings = <
 &as TILDE GRAVE  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH   &mts LG(R) DLLR            &kp PRCNT                    &trans          &kp CARET      &kp AMPS        &as UNDER MINUS  &mts LG(O) LPAR  &kp RPAR             &kp BACKSPACE
-&trans           &none            &kp LG(S)    &none      &as PIPE NON_US_BACKSLASH  &kp COLON            &trans  &trans  &trans  &as LBRC LBKT  &as PLUS EQUAL  &kp ASTRK        &as RBRC RBKT    &kp COLON            &as DQT SQT
+&trans           &none            &kp LG(S)    &none      &as PIPE NON_US_BACKSLASH  &kp COLON            &trans  &trans  &trans  &as LBRC LBKT  &as PLUS EQUAL  &kp ASTRK        &as RBRC RBKT    &kp COLON            &kp DQT
 &trans           &none            &none        &kp LG(C)  &kp LG(V)                  &kp TILDE  &trans            &trans          &kp DEL        &kp BSPC        &kp LT           &kp GT           &kp QMARK            &trans
                                                &trans     &trans                     &trans                                       &mo 2          &kp SPACE       &kp LS(ENTER)
             >;
