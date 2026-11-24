@@ -113,6 +113,18 @@
             flavor = "tap-preferred";
         };
 
+        // L21 전용 NAV 레이어 탭: 다른 키를 누르는 순간 NAV 로 확정해서 숫자 연타 중 Shift+Esc 오입력 방지
+        // (require-prior-idle-ms·quick-tap-ms 없음 → 직전 키 직후 다시 눌러도 홀드 가능)
+
+        lt_nav: lt_nav {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+        };
+
         rsr_vol: rsr_vol {
             compatible = "zmk,behavior-runtime-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -203,7 +215,7 @@
 &kp TAB       &as LS(Q) Q  &as LS(W) W      &as LS(E) E     &as LS(R) R     &as LS(T) T                                     &mmv MOVE_UP                     &kp Y         &kp U            &kp I                &as LS(O) O         &as LS(P) P          &kp BSPC
 &lt NUM CAPS  &kp A        &kp S            &kp D           &kp F           &kp G                           &mmv MOVE_LEFT  &none           &mmv MOVE_RIGHT  &kp H         &kp J            &kp K                &kp L               &as COLON SEMICOLON  &kp SQT
 &kp LSHFT     &kp Z        &hmLeft LALT X   &hmLeft LCTRL C &hmLeft LGUI V  &kp B              &mkp LCLK                    &mmv MOVE_DOWN                   &hmRight B N  &hmRight RGUI M  &hmRight RCTRL COMMA &hmRight RALT DOT    &kp SLASH            &kp RSHFT
-                                            &mt LGUI LG(SPACE)  &lt SYM ESC     &lt NAV LS(ESC)                                                                  &mt RSHFT BSPC  &kp SPACE      &kp ENTER
+                                            &mt LGUI LG(SPACE)  &lt SYM ESC     &lt_nav NAV LS(ESC)                                                                  &mt RSHFT BSPC  &kp SPACE      &kp ENTER
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
