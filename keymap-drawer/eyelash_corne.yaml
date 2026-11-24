@@ -257,5 +257,5 @@ combos:
   l: [QWERTY]
 - p: [23, 24]
   k: '&enters'
-- p: [44, 45]
+- p: [43, 45]
   k: NAV
